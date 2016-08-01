@@ -1,0 +1,266 @@
+set $mod Mod4
+
+# WorkSpaces 
+set $ws1  "1:"
+set $ws2  "2:"
+set $ws3  "3:"
+set $ws4  "4:"
+set $ws5  "5:"
+set $ws6  "6:"
+set $ws7  "7:"
+set $ws8  "8:"
+set $ws9  "9:"
+set $ws10 "10:"
+
+# Display
+set $display LVDS1
+
+# Colors
+set $black       #212121
+set $orange      #ea7b24c
+set $darkblack   #000000
+set $red         #fb4934
+set $darkred     #cc241d
+set $green       #b8bb26
+set $darkgreen   #98971a
+set $yellow      #fabd2f
+set $darkyellow  #d79921
+set $blue        #83a598
+set $darkblue    #458588
+set $magenta     #d3869b
+set $darkmagenta #b16286
+set $cyan        #8ec07c
+set $darkcyan    #689d6a
+set $white       #ebdbb2
+set $darkwhite   #a89984
+# set $background  #000000
+set $transparent #1d202100
+
+# font for window titles. ISO 10646 = Unicode
+font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+
+# Bindsym
+
+# Multimedia
+bindsym XF86AudioRaiseVolume exec amixer set Master 5%+ unmute
+bindsym XF86AudioLowerVolume exec amixer set Master 5%- unmute
+bindsym XF86AudioMute exec amixer set Master nmute
+
+#todo
+bindsym XF86AudioStop exec --no-startup-id mpc stop
+bindsym XF86AudioPlay exec --no-startup-id mpc toggle
+bindsym XF86AudioPrev exec --no-startup-id mpc prev
+bindsym XF86AudioNext exec --no-startup-id mpc next
+
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+
+bindsym Print exec scrot '%Y-%m-%d_%T_$wx$h.png' -e 'mv $f ~/images'
+
+# start a terminal
+bindsym $mod+Return exec xfce4-terminal
+
+# kill focused window
+bindsym $mod+Shift+Q kill
+
+# start dmenu (a program launcher)
+bindsym $mod+d exec dmenu_run  -nb "#333" -nf "#EA724C" -sb "#EA724C" -sf "#333"
+#bindsym $mod+d exec rofi -show run -terminal termite -lines 5 -eh 3 -width 100 -padding 285 -opacity 10 -bw 0 -bc "#555555" -bg "#222222" -hlbg "#222222" -hlfg "#c79595" -fg "#ffffff" -font "Terminus 15"
+# start dmenfm
+bindsym $mod+Shift+d exec dmenfm
+
+# change focus
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+ntilde focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+J move left
+bindsym $mod+Shift+K move down
+bindsym $mod+Shift+L move up
+bindsym $mod+Shift+Ntilde move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+h split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen
+
+# change container layout (stacked, tabbed, default)
+bindsym $mod+s layout stacking
+bindsym $mod+t layout tabbed
+bindsym $mod+e layout default
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+#bindcode $mod+d focus child
+
+# workspace names
+workspace $ws1 output $display
+workspace $ws2 output $display
+workspace $ws3 output $display
+workspace $ws4 output $display
+workspace $ws5 output $display
+workspace $ws6 output $display
+workspace $ws7 output $display
+workspace $ws8 output $display
+workspace $ws9 output $display
+workspace $ws10 output $display
+
+# switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+
+# move focused container to workspace
+bindsym $mod+Shift+exclam move container to workspace $ws1
+bindsym $mod+Shift+quotedbl move container to workspace $ws2
+bindsym $mod+Shift+periodcentered move container to workspace $ws3
+bindsym $mod+Shift+dollar move container to workspace $ws4
+bindsym $mod+Shift+percent move container to workspace $ws5
+bindsym $mod+Shift+ampersand move container to workspace $ws6
+bindsym $mod+Shift+slash move container to workspace $ws7
+bindsym $mod+Shift+parenleft move container to workspace $ws8
+bindsym $mod+Shift+parenright move container to workspace $ws9
+bindsym $mod+Shift+equal move container to workspace $ws10
+
+#workspace gaps
+workspace $ws4 gaps inner 10
+workspace $ws5 gaps inner 10
+workspace $ws9 gaps inner 10
+workspace $ws10 gaps inner 10
+
+
+# reload the configuration file
+bindsym $mod+Shift+C reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+R restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+E exit
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize shrink height 10 px or 10 ppt
+        bindsym ntilde resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym 113 resize shrink width 10 px or 10 ppt
+        bindsym 116 resize grow height 10 px or 10 ppt
+        bindsym 111 resize shrink height 10 px or 10 ppt
+        bindsym 114 resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+bar {
+    status_command i3blocks -c ~/.i3/i3blocks
+    i3bar_command i3bar -t
+    position top
+    font pango: Hack, FontAwesome 10
+    strip_workspace_numbers yes
+    separator_symbol "■"
+    #tray_output none
+    height 24
+    colors {
+
+#                          BORDER       BACKGROUND   TEXT
+        focused_workspace  $transparent $transparent $orange
+        inactive_workspace $transparent $transparent $white
+        active_workspace   $transparent $transparent $white
+        urgent_workspace   $darkred     $darkred     $transparent
+        binding_mode       $transparent $transparent $orange
+    }
+}
+
+#shutdown
+set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
+mode "$mode_system" {
+    bindsym l exec --no-startup-id ~/.i3/scripts/exit lock, mode "default"
+    bindsym e exec --no-startup-id ~/.i3/scripts/exit logout, mode "default"
+    bindsym s exec --no-startup-id ~/.i3/scripts/exit suspend, mode "default"
+    bindsym h exec --no-startup-id ~/.i3/scripts/exit hibernate, mode "default"
+    bindsym r exec --no-startup-id ~/.i3/scripts/exit reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id ~/.i3/scripts/exit shutdown, mode "default"
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+Escape mode "$mode_system"
+
+#i3lock
+bindsym $mod+Shift+BackSpace exec i3lock -c212121
+
+
+#windows colors
+new_window pixel
+# class                 border  backgr. text    indicator
+client.focused          $black  $black  $orange $black
+client.focused_inactive $black  $black  $white  $black
+client.unfocused        $black  $black  $white  $black
+client.urgent           $black  $orange $black  $darkred
+
+#abrir terminales en modo tabbed
+#for_window [class="Xfce4-terminal"] focus child, layout tabbed, focus
+
+#startup
+exec_always feh --bg-fill --randomize ~/.wallpapers/
+exec setxkbmap es
+exec xbindkeys -f ~/.xbindkeysrc
+exec xmodmap -e "keycode 135 = Down"
+
+#scratchpad
+bindsym $mod+m [con_mark="music"] scratchpad show
+for_window [class="Spotify"] mark "music", move scratchpad
+exec spotify

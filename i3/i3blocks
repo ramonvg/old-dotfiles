@@ -1,0 +1,50 @@
+separator=false
+separator_block_width=5
+border_top=0
+border_left=0
+border_right=0
+border_bottom=2
+command=~/.i3/blocks/$BLOCK_NAME
+
+#[updates]
+#command=$HOME/.i3/scripts/updates.sh
+#interval=60
+#signal=2
+#urgent=true
+
+[temperature]
+label= 
+command=echo "$($HOME//.i3/scripts/temperature 'Core 0')ºC"
+interval=5
+border=#b16286
+#color=#b16286
+
+[ip-address]
+label=
+interval=60
+border=#77C34A
+#color=#77C34A
+
+#[wireless]
+#label=
+#command=[[ -z "$(iwgetid -r)" ]] || echo "$(iwgetid -r) "
+#interval=2
+
+border=#77C34A
+#color=#77C34A
+
+[battery]
+command=$HOME//.i3/scripts/battery
+interval=10
+border=#7DAFFD
+#color=#7DAFFD
+
+
+[time]
+label=  
+command=echo "`date +'%d/%m'` `date +'%H:%M'`";
+interval=1
+#markup=pango
+border=#FC526E
+#color=#FC526E
+separator_block_width=0
