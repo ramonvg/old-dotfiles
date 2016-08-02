@@ -18,6 +18,6 @@ MiscTabPosition=GTK_POS_TOP
 MiscHighlightUrls=TRUE
 MiscScrollAlternateScreen=TRUE
 BackgroundMode=TERMINAL_BACKGROUND_TRANSPARENT
-BackgroundDarkness=0,800000
+BackgroundDarkness=0.800000
 ScrollingBar=TERMINAL_SCROLLBAR_NONE
 
