@@ -9,7 +9,7 @@ echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sourc
 sudo apt-get update
 
 # 4. Install programs
-apt install gdebi pavucontrol vlc transmission-gtk ruby-ronn xfce4-terminal spotify-client xorg slim zsh lxrandr python3-pip -y
+apt install gdebi pavucontrol vlc transmission-gtk ruby-ronn xfce4-terminal spotify-client xorg slim zsh lxrandr python3-pip highlight atool -y
 
 # 5. Install atom
 wget https://atom.io/download/deb | gdebi
@@ -23,8 +23,7 @@ make clean debug # or make clean all
 make install
 
 # 7. Cleaning stuff
-apt purge ruby-ronn
-
+apt purge ruby-ronn xdg-user-dirs
 # Config stuff
 dotfiles=$HOME/.dotfiles
 EDITOR=atom
@@ -41,3 +40,4 @@ sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/to
 ln -s $dotfiles/i3 $HOME/.i3
 ln -s $dotfiles/config/xfce4 $HOME/.config/xfce4
 ln -s $dotfiles/zshrc $HOME/.zshrc
+ln -s $dotfiles/config/ranger/rc.conf $HOME/.config/ranger/rc.conf
