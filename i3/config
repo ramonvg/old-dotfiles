@@ -180,7 +180,7 @@ mode "resize" {
         # use +/- to increase/ width, shift+(+/-) to increase/decrease height
         bindsym KP_Subtract resize shrink width 10 px or 10 ppt
         bindsym KP_Add resize grow width 10 px or 10 ppt
-        bindsym Shift+KP_SubtractR resize shrink height 10 px or 10 ppt
+        bindsym Shift+KP_Subtract resize shrink height 10 px or 10 ppt
         bindsym Shift+KP_Add resize grow height 10 px or 10 ppt
 
         # back to normal: Enter or Escape

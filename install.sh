@@ -31,7 +31,7 @@ EDITOR=atom
 
 # Wide system config
 # Adding shutdown permission to users in group sudo
-echo "%admin ALL=NOPASSWD: /sbin/reboot, /sbin/poweroff" >> /etc/sudoers
+echo "%sudo ALL=NOPASSWD: /sbin/reboot, /sbin/poweroff" >> /etc/sudoers
 
 # Configuring git
 git config --global user.name "ramonvg"
