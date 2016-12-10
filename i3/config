@@ -240,16 +240,11 @@ exec setxkbmap es
 exec spotify
 exec megasync
 exec xbindkeys -f ~/.config/xbindkeysrc # mad catz rat 5 config
-exec xfce4-terminal --command=ranger --title=ranger
 
 # SCRATCHPAD
 ## spotify
 bindsym $mod+m [con_mark="music"] scratchpad show
 for_window [class="Spotify"] mark "music", move scratchpad
-
-## ranger
-bindsym $mod+x [con_mark="fm"] scratchpad show
-for_window [title="ranger"] mark "fm", move scratchpad
 
 # DISPLAYS
 exec xrandr --output $Ldisplay --auto --left-of $Rdisplay

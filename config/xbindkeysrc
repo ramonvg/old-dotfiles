@@ -10,15 +10,10 @@ b:8
 Control + b:10
 "amixer set Master 5%- unmute"
 Control + b:11
-"i3-msg -t command "workspace number 1""
-b:12
-"i3-msg -t command "workspace number 3""
-Shift + b:12
-"pkill vlc && pkill gnome-twitch"
+"i3lock -c212121"
 Control + b:12
 "i3lock -c212121"
-Shift + Control + b:12
-
+Control + Shift + Backspace
 
 # Play/Pause
 "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
@@ -40,9 +35,9 @@ XF86AudioStop
 "amixer set Master 5%+ unmute"
 XF86AudioRaiseVolume
 "amixer set Master 5%- unmute"
- XF86AudioLowerVolume
+XF86AudioLowerVolume
 
-"amixer -c 0 sset Master toggle"
+"amixer sset Master toggle"
 XF86AudioMute
 
 # Sreen brightness controls
@@ -55,3 +50,4 @@ XF86MonBrightnessDown
 # Screenshoot
 "scrot '%Y-%m-%d_%T_$wx$h.png' -e 'mv $f ~/images'"
 Print
+
