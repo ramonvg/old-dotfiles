@@ -25,8 +25,8 @@ set $lock_cmd scrot /tmp/screenshot.png && convert /tmp/screenshot.png -blur 0x5
 set $ws1  "1:web"
 set $ws2  "2:term"
 set $ws3  "3:code"
-set $ws4  "4:chat"
-set $ws5  "5:"
+set $ws4  "4:ipython"
+set $ws5  "5:chat"
 set $ws6  "6:"
 set $ws7  "7:"
 set $ws8  "8:bg"
@@ -123,16 +123,16 @@ bindsym $mod+a focus parent
 #bindcode $mod+d focus child
 
 # workspace names
-workspace $ws1 output $display
-workspace $ws2 output $display
-workspace $ws3 output $display
-workspace $ws4 output $display
-workspace $ws5 output $display
-workspace $ws6 output $display
-workspace $ws7 output $display
-workspace $ws8 output $display
-workspace $ws9 output $display
-workspace $ws10 output $display
+#workspace $ws1 output $display
+#workspace $ws2 output $display
+#workspace $ws3 output $display
+#workspace $ws4 output $display
+#workspace $ws5 output $display
+#workspace $ws6 output $display
+#workspace $ws7 output $display
+#workspace $ws8 output $display
+#workspace $ws9 output $display
+#workspace $ws10 output $display
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -158,12 +158,9 @@ bindsym $mod+Shift+parenleft move container to workspace $ws8
 bindsym $mod+Shift+parenright move container to workspace $ws9
 bindsym $mod+Shift+equal move container to workspace $ws10
 
-#workspace gaps
-workspace $ws4 gaps inner 10
-workspace $ws5 gaps inner 10
-workspace $ws9 gaps inner 10
-workspace $ws10 gaps inner 10
-
+# default workspace by screen
+workspace $ws1 output $Ldisplay
+workspace $ws10 output $Rdisplay
 
 # reload the configuration file
 bindsym $mod+Shift+C reload
@@ -256,3 +253,5 @@ for_window [title="ranger"] mark "fm", move scratchpad
 
 # DISPLAYS
 exec xrandr --output $Ldisplay --auto --left-of $Rdisplay
+
+for_window [instance=xfce4-terminal] sticky enable
