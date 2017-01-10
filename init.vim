@@ -239,3 +239,5 @@ au BufNewFile,BufRead *.js,*.html,*.css,*.yml,*.yaml
     \ set softtabstop=2 |
     \ set shiftwidth=2 |
 
+" System clipboard. Requires xclip
+set clipboard=unnamedplus
