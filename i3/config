@@ -2,8 +2,8 @@ set $mod Mod4
 set $alt Mod1
 
 # display names, use `xrandr` to get names
-set $Ldisplay VGA-1
-set $Rdisplay HDMI-1
+set $Ldisplay DP-2
+set $Rdisplay DP-3
 
 # lock commnand
 # set $lock_cmd i3lock -c212121
@@ -22,19 +22,17 @@ set $lock_cmd scrot /tmp/screenshot.png && convert /tmp/screenshot.png -blur 0x5
 # set $ws9  "9:"
 # set $ws10 "10:"
 
-set $ws1  "1:web"
-set $ws2  "2:term"
-set $ws3  "3:code"
-set $ws4  "4:ipython"
-set $ws5  "5:chat"
-set $ws6  "6:"
-set $ws7  "7:"
-set $ws8  "8:bg"
-set $ws9  "9:ssh"
-set $ws10 "10:root"
+set $ws1  "1"
+set $ws2  "2"
+set $ws3  "3"
+set $ws4  "4"
+set $ws5  "5"
+set $ws6  "6"
+set $ws7  "7"
+set $ws8  "8"
+set $ws9  "9"
+set $ws10 "10"
 
-# Display
-set $display LVDS1
 
 # Colors
 set $black       #212121
@@ -66,8 +64,6 @@ floating_modifier $mod
 
 # Bindsym
 
-
-
 # start a terminal
 bindsym $mod+Return exec xfce4-terminal
 
@@ -75,7 +71,7 @@ bindsym $mod+Return exec xfce4-terminal
 bindsym $mod+Shift+Q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run  -nb "#333" -nf "#EA724C" -sb "#EA724C" -sf "#333"
+bindsym $mod+d exec dmenu_run  #-nb "#333" -nf "#EA724C" -sb "#EA724C" -sf "#333"
 #bindsym $mod+d exec rofi -show run -terminal termite -lines 5 -eh 3 -width 100 -padding 285 -opacity 10 -bw 0 -bc "#555555" -bg "#222222" -hlbg "#222222" -hlfg "#c79595" -fg "#ffffff" -font "Terminus 15"
 # start dmenfm
 bindsym $mod+Shift+d exec dmenfm
@@ -187,48 +183,37 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-#shutdown
-set $mode_system System (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
-mode "$mode_system" {
-    bindsym h exec --no-startup-id systemctl hibernate, mode "default"
-    bindsym s exec --no-startup-id $lock_cmd && exec systemctl suspend, mode "default"
-    bindsym r exec --no-startup-id sudo reboot, mode "default"
-    bindsym Shift+s exec --no-startup-id sudo shutdown, mode "default"
-
-    # back to normal: Enter or Escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-bindsym $mod+Escape mode "$mode_system"
-
 # BAR STYLE
+# bar {
+#     status_command i3blocks -c ~/.i3/i3blocks
+#     i3bar_command i3bar -t
+#     position top
+#     font pango: Hack, FontAwesome 10
+#     strip_workspace_numbers yes
+#     separator_symbol "■"
+#     #tray_output none
+#     # height 24
+#     colors {
+# 
+# #                          BORDER       BACKGROUND   TEXT
+#         focused_workspace  $transparent $transparent $orange
+#         inactive_workspace $transparent $transparent $white
+#         active_workspace   $transparent $transparent $white
+#         urgent_workspace   $darkred     $darkred     $white
+#         binding_mode       $transparent $transparent $red
+#     }
+# }
 bar {
-    status_command i3blocks -c ~/.i3/i3blocks
-    i3bar_command i3bar -t
-    position top
+    status_command i3status -c ~/.i3/status.conf
     font pango: Hack, FontAwesome 10
-    strip_workspace_numbers yes
-    separator_symbol "■"
-    #tray_output none
-    height 24
-    colors {
-
-#                          BORDER       BACKGROUND   TEXT
-        focused_workspace  $transparent $transparent $orange
-        inactive_workspace $transparent $transparent $white
-        active_workspace   $transparent $transparent $white
-        urgent_workspace   $darkred     $darkred     $white
-        binding_mode       $transparent $transparent $red
-    }
 }
-
 # WINDOW STYLE
 new_window pixel 2
-new_float pixel 0
+new_float pixel 2
 hide_edge_borders vertical
 
 ## class                tit_bord  backgr.         text       indicator   border
-client.focused          $black    $transparent    $orange    $black      $orange
+client.focused          $black    $transparent    $blue      $black      $blue
 client.focused_inactive $black    $transparent    $white     $black      $transparent
 client.unfocused        $black    $transparent    $white     $black      $transparent
 client.urgent           $black    $transparent    $black     $darkred    $transparent
