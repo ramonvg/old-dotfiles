@@ -388,6 +388,11 @@ statusbar = {
   };
 };
 settings = {
-  core = { real_name = "ramonvg"; user_name = "ramonvg"; nick = "ramonvg"; };
+  core = { 
+    real_name = "ramonvg";
+    user_name = "ramonvg";
+    nick = "ramonvg";
+  };
   "fe-text" = { actlist_sort = "refnum"; };
 };
+ignores = ( { mask = "MODES"; level = "JOINS PARTS QUITS"; } );
