@@ -2,7 +2,7 @@ export ZSH=$HOME/.oh-my-zsh
 
 ZSH_THEME="ramonvg"
 
-plugins=(git jump dircycle debian dirhistory docker hhtpie pip)
+plugins=(git jump dircycle debian dirhistory docker hhtpie pip ssh-agent)
 
 source $ZSH/oh-my-zsh.sh
 unsetopt share_history
