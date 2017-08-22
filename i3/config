@@ -225,11 +225,16 @@ exec setxkbmap es
 exec spotify
 exec megasync
 exec xbindkeys -f ~/.config/xbindkeysrc # mad catz rat 5 config
-
+exec xcompmgr -c  -f -n -D 4
 # SCRATCHPAD
 ## spotify
 bindsym $mod+m [con_mark="music"] scratchpad show
 for_window [class="Spotify"] mark "music", move scratchpad
+
+## slack
+bindsym $mod+c [con_mark="chat"] scratchpad show
+for_window [class="Slack"] mark "chat", move scratchpad
+
 
 # DISPLAYS
 exec xrandr --output $Ldisplay --auto --left-of $Rdisplay

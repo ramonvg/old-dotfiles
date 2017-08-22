@@ -10,4 +10,5 @@ unsetopt share_history
 # Aliases
 source ~/.bash_aliases
 
-export EDITOR=vim
+export EDITOR=nvim
+source /usr/local/bin/activate.sh
