@@ -11,4 +11,4 @@ unsetopt share_history
 source ~/.bash_aliases
 
 export EDITOR=nvim
-source /usr/local/bin/activate.sh
+AUTOENV_ENV_FILENAME='.autoenv' source /usr/local/bin/activate.sh

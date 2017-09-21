@@ -1,3 +1,5 @@
 [user]
 	email = ramonvillalongaa@gmail.com
 	name = Ramon
+[core]
+	excludesfile = /home/ramon/.gitignore_global
