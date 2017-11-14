@@ -12,3 +12,5 @@ source ~/.bash_aliases
 
 export EDITOR=nvim
 AUTOENV_ENV_FILENAME='.autoenv' source /usr/local/bin/activate.sh
+PATH=$PATH:~/.bin:~/.local/bin
+

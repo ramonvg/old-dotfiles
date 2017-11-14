@@ -204,7 +204,7 @@ bindsym $mod+r mode "resize"
 #     }
 # }
 bar {
-    status_command i3status -c ~/.i3/status.conf
+    status_command py3status -c ~/.i3/status.conf -n 1
 }
 # WINDOW STYLE
 new_window pixel 2
