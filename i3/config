@@ -226,6 +226,8 @@ exec megasync
 exec xbindkeys -f ~/.config/xbindkeysrc # mad catz rat 5 config
 exec xcompmgr -c  -f -n -D 4
 exec nm-applet
+exec pnmixer
+exec blueman-applet
 # SCRATCHPAD
 ## spotify
 bindsym $mod+m [con_mark="music"] scratchpad show
