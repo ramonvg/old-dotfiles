@@ -5,6 +5,9 @@
 [core]
 	excludesfile = /home/ramon/.gitignore_global
 
+[pull]
+    default = current
+
 [push]
     default = current
     followTags = true
