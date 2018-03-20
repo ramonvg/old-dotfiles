@@ -1,3 +1,4 @@
 pylama.self.ini
 docker-compose.yml.bk
 .vscode/
+.pytest_cache

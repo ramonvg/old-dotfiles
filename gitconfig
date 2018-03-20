@@ -3,7 +3,7 @@
 	name = Ramon
 
 [core]
-	excludesfile = /home/ramon/.gitignore_global
+	excludesfile = ~/.gitignore_global
 
 [push]
     default = current
