@@ -5,6 +5,9 @@
 [core]
 	excludesfile = ~/.gitignore_global
 
+[pull]
+    default = current
+
 [push]
     default = current
     followTags = true
