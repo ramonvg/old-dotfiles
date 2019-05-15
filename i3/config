@@ -1,7 +1,5 @@
 set $mod Mod4
-set $alt Mod1
-
-# display names, use `xrandr` to get names
+set $alt Mod1 # display names, use `xrandr` to get names
 set $Ldisplay DP-2
 set $Rdisplay DP-3
 
@@ -71,8 +69,13 @@ bindsym $mod+Return exec xfce4-terminal
 bindsym $mod+Shift+Q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run  #-nb "#333" -nf "#EA724C" -sb "#EA724C" -sf "#333"
-#bindsym $mod+d exec rofi -show run -terminal termite -lines 5 -eh 3 -width 100 -padding 285 -opacity 10 -bw 0 -bc "#555555" -bg "#222222" -hlbg "#222222" -hlfg "#c79595" -fg "#ffffff" -font "Terminus 15"
+# bindsym $mod+d exec dmenu_run  #-nb "#333" -nf "#EA724C" -sb "#EA724C" -sf "#333"
+bindsym $mod+d exec rofi -show run 
+bindsym $mod+x exec rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
+bindsym $mod+c exec rochi
+bindsym $mod+space exec pyrvana
+bindsym $mod+n exec rofhub
+
 # start dmenfm
 bindsym $mod+Shift+d exec dmenfm
 
@@ -105,14 +108,14 @@ bindsym $mod+f fullscreen
 
 # change container layout (stacked, tabbed, default)
 bindsym $mod+s layout stacking
-bindsym $mod+t layout tabbed
+# bindsym $mod+t layout tabbed
 bindsym $mod+e layout default
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+# bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -166,6 +169,10 @@ bindsym $mod+Shift+C reload
 bindsym $mod+Shift+R restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+E exit
+
+# XF86
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10
+bindsym XF86MonBrightnessUp exec xbacklight -inc 10
 
 # MODES
 # resize window (you can also use the mouse for that)
@@ -230,17 +237,27 @@ exec xcompmgr -c  -f -n -D 4
 exec nm-applet
 exec pnmixer
 exec blueman-applet
+exec greenclip daemon
 # SCRATCHPAD
 ## spotify
 bindsym $mod+m [con_mark="music"] scratchpad show
 for_window [class="Spotify"] mark "music", move scratchpad
 
 ## slack
-bindsym $mod+c [con_mark="chat"] scratchpad show
-for_window [class="Slack"] mark "chat", move scratchpad
+# bindsym $mod+c [con_mark="chat"] scratchpad show
+# for_window [class="Slack"] mark "chat", move scratchpad
 
 
 # DISPLAYS
 exec xrandr --output $Ldisplay --auto --left-of $Rdisplay
 
 for_window [instance=xfce4-terminal] sticky enable
+
+exec --no-startup-id dbus-send \
+    --session \
+    --print-reply=literal \
+    --dest=org.gnome.SessionManager \
+    "/org/gnome/SessionManager" \
+    org.gnome.SessionManager.RegisterClient \
+    "string:i3" \
+    "string:$DESKTOP_AUTOSTART_ID"
