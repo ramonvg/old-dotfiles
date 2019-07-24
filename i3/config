@@ -63,7 +63,7 @@ floating_modifier $mod
 # Bindsym
 
 # start a terminal
-bindsym $mod+Return exec xfce4-terminal
+bindsym $mod+Return exec xfce4-terminal # alacritty 
 
 # kill focused window
 bindsym $mod+Shift+Q kill

@@ -3,3 +3,4 @@ docker-compose.yml.bk
 .vscode/
 .env
 .pytest_cache/
+XDG_CACHE_HOME/
